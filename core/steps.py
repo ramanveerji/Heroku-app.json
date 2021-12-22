@@ -233,8 +233,9 @@ async def StartSteps(bot: Client, editable: Message):
         await editable.edit("Processing Logo ...")
         logo_jpg = await bot.download_media(
             input_m,
-            file_name=f"./downloads/logo/{str(editable.chat.id)}/{str(editable.message_id)}/",
+            file_name=f'./downloads/logo/{editable.chat.id}/{editable.message_id}/',
         )
+
         resp = upload_file(logo_jpg)
         logo_jpg = f"https://telegra.ph/{resp[0]}"
         heroku_app["logo"] = logo_jpg

@@ -11,9 +11,7 @@ async def FixEnvData(data: List[str]):
         cache_data[2] = (
             "" if cache_data[2].isspace() else cache_data[2].split(" ", 1)[-1]
         )
-    if (str(cache_data[3]).lower().strip() != "true") and (
-        str(cache_data[3]).lower().strip() != "false"
-    ):
+    if str(cache_data[3]).lower().strip() not in ["true", "false"]:
         cache_data[3] = True
     elif str(cache_data[3]).lower().strip() == "true":
         cache_data[3] = True
